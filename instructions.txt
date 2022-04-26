@@ -1,0 +1,14 @@
+addi $t0, $zero, 100
+add $s0, $zero, $zero
+addi $s2, $zero, 200
+loop: beq $t0, $s2, end
+add $s0, $s0, $s2
+addi $s0, $t0, 2
+sub $s0, $s0, $s2
+mult $s0, $s0, $t0
+div $s0, $s0, $t0
+addi $t0, $t0, 4
+j loop
+end: lw $s1, 4($s2)
+add $s2, $s2, $s1
+sw $s0, 12($s2)
